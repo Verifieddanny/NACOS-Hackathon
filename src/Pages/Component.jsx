@@ -2,12 +2,26 @@ import React, { useState } from "react";
 import pic from "../assets/pic1.jpg";
 import crypto from "../assets/crypto-trading.jpg";
 import trade from "../assets/wealth_management.jpg";
+
+const comments = [];
+const comments1 = [];
+const comments2 = [];
 export const MobileView = () => {
   const [text, setText] = useState("");
   const [text1, setText1] = useState("");
   const [text2, setText2] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (text) {
+      comments.push(text);
+    }
+    if (text1) {
+      comments1.push(text1);
+    }
+
+    if (text2) {
+      comments2.push(text2);
+    }
     console.log(`commented ${text || text1 || text2}`);
     setText("");
     setText1("");
@@ -41,6 +55,19 @@ export const MobileView = () => {
             className="mt-4 mx-2 h-10 px-2 rounded-md w-full bg-[#1e1e1e] text-[#D9D9D9] dark:bg-[#D9D9D9]  dark:text-[#1e1e1e]"
           />
         </form>
+
+        {comments.length > 0 && (
+          <div className="w-full bg-[#1e1e1e] text-[#D9D9D9] dark:bg-[#D9D9D9]  dark:text-[#1e1e1e] h-20 mt-[2rem] overflow-y-scroll">
+            <p className="text-center font-bold">COMMENT</p>
+            {comments.map((comment, index) => {
+              return (
+                <p className="ml-2 " key={index}>
+                  {comment}
+                </p>
+              );
+            })}
+          </div>
+        )}
       </div>
       <div className="blooogs">
         <p className="font-extrabold text-xl text-center mb-3">
@@ -70,6 +97,18 @@ export const MobileView = () => {
             className="mt-4 mx-2 h-10 px-2 rounded-md w-full bg-[#1e1e1e] text-[#D9D9D9] dark:bg-[#D9D9D9]  dark:text-[#1e1e1e]"
           />
         </form>
+        {comments1.length > 0 && (
+          <div className="w-full bg-[#1e1e1e] text-[#D9D9D9] dark:bg-[#D9D9D9]  dark:text-[#1e1e1e] h-20 mt-[2rem] overflow-y-scroll">
+            <p className="text-center font-bold">COMMENT</p>
+            {comments1.map((comment, index) => {
+              return (
+                <p className="ml-2 " key={index}>
+                  {comment}
+                </p>
+              );
+            })}
+          </div>
+        )}
       </div>
       <div className="blooogs">
         <p
@@ -102,6 +141,18 @@ export const MobileView = () => {
             className="mt-4 mx-2 h-10 px-2 rounded-md w-full bg-[#1e1e1e] text-[#D9D9D9] dark:bg-[#D9D9D9]  dark:text-[#1e1e1e]"
           />
         </form>
+        {comments2.length > 0 && (
+          <div className="w-full bg-[#1e1e1e] text-[#D9D9D9] dark:bg-[#D9D9D9]  dark:text-[#1e1e1e] h-20 mt-[2rem] overflow-y-scroll">
+            <p className="text-center font-bold">COMMENT</p>
+            {comments2.map((comment, index) => {
+              return (
+                <p className="ml-2 " key={index}>
+                  {comment}
+                </p>
+              );
+            })}
+          </div>
+        )}
       </div>
     </div>
   );

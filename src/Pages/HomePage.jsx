@@ -8,12 +8,15 @@ const blogsArr = [
   { picture: crypto, Title: "Crypto Trading", id: 1 },
   { picture: trade, Title: "WEB3", id: 2 },
 ];
+
+const comments = [];
 export const HomePage = () => {
   const [blog1, setBlog1] = useState(0);
   const [text, setText] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    comments.push(text);
     console.log(`commented ${text}`);
     setText("");
   };
@@ -125,6 +128,16 @@ export const HomePage = () => {
             className="mt-4 mx-2 h-10 px-2 rounded-md w-full dark:bg-[#1e1e1e] dark:text-[#D9D9D9] bg-[#D9D9D9]  text-[#1e1e1e]"
           />
         </form>
+        <div className="absolute w-[40%] ml-2 dark:bg-[#1e1e1e] dark:text-[#D9D9D9] bg-[#D9D9D9]  text-[#1e1e1e] h-40 mt-[10rem] overflow-y-scroll">
+          <p className="text-center font-bold">COMMENT</p>
+          {comments.map((comment, index) => {
+            return (
+              <p className="ml-2 " key={index}>
+                {comment}
+              </p>
+            );
+          })}
+        </div>
       </div>
       <MobileView />
     </>
