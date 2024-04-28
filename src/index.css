@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* font-family: "Montserrat", sans-serif; */
+  user-select: none;
+}
+body {
+  /* width: 100vw !important; */
+  overflow-x: hidden !important;
+  color: #1e1e1e;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+.body {
+  @apply md:h-screen bg-[#1e1e1e] text-[#D9D9D9] dark:bg-[#D9D9D9]  dark:text-[#1e1e1e] md:overflow-hidden w-full max-w-[1300px] mx-auto;
+}
+#root {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden !important;
+}
+a {
+  color: none;
+}
+.nav {
+  @apply w-screen md:h-[4rem] backdrop-blur-md bg-[#1e1e1e] dark:bg-[#D9D9D9] fixed top-0 left-0 flex justify-between items-center px-3 lg:px-[4rem]  text-xl z-30 h-[3.5rem];
+}
+
+.InnerNav {
+  @apply lg:w-[80%] lg:h-full dark:bg-[#d9d9d9] bg-[#1e1e1e] flex flex-col px-3 md:px-0 text-center lg:text-start lg:static lg:flex-row justify-between lg:justify-center gap-x-[6rem] md:items-center absolute left-0  z-[-20] w-screen h-screen  lg:py-0 pt-[4rem] pb-[3rem]   transition-all duration-700;
+}
+
+.menu {
+  @apply absolute right-3 md:top-4 top-2 px-[2rem] py-[6px] md:py-[0.5rem] hover:opacity-75 bg-[#1e1e1e] rounded-md lg:hidden transition-all duration-700 dark:bg-[#d9d9d9] text-[#d9d9d9] dark:text-[#1e1e1e] drop-shadow-lg;
+}
+
+.NavLinks {
+  @apply md:hover:scale-110 hover:text-[#3f3f3f] transition-all duration-500;
+}
+.logo {
+  @apply w-[4rem] md:w-[7rem] md:h-[3rem] cursor-pointer;
+}
+.Images {
+  @apply md:w-[18rem] md:h-[30rem] drop-shadow-lg rounded-lg overflow-hidden absolute md:left-[25rem] -z-20;
+}
+.mainImg {
+  @apply w-full h-full object-cover brightness-[60%];
+}
+.Description {
+  @apply md:w-[40%] z-[4rem] drop-shadow-lg cursor-pointer hover:bg-[#00000084] dark:bg-[#ffffff84] p-2 transition-all delay-700 relative md:top-[5rem] rounded-xl backdrop-blur-md;
+}
+.blogs {
+  @apply absolute bottom-0 right-0 w-[46%] h-[25rem] bg-[#131313]  dark:text-[#1e1e1e] text-[#D9D9D9] dark:bg-[#eceaea] px-2;
+}
+.bloggin {
+  @apply w-full rounded h-[32%]  bg-[#1e1e1e] text-[#D9D9D9] dark:bg-[#D9D9D9]  dark:text-[#1e1e1e] p-2 flex justify-between hover:bg-[#2b2a2a] dark:hover:bg-[#f1f0f0] cursor-pointer hover:scale-110 ease-in duration-300;
+}
+.blooogs {
+  @apply w-full flex flex-col bg-[#131313] dark:bg-[#f2f1f1] mb-5 p-3;
+}
+.TopSection {
+  @apply w-full h-screen;
+}
+.ErrorImage {
+  @apply w-[75%] h-[75%] object-cover bg-no-repeat bg-center animate-pulse bg-[url("./assets/ErrorPage.svg")]  transition-all duration-500;
+}
