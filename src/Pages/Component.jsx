@@ -1,26 +1,48 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import pic from "../assets/pic1.jpg";
 import crypto from "../assets/crypto-trading.jpg";
 import trade from "../assets/wealth_management.jpg";
 
-const comments = [];
-const comments1 = [];
-const comments2 = [];
+// const comments = [];
+// const comments1 = [];
+// const comments2 = [];
 export const MobileView = () => {
   const [text, setText] = useState("");
   const [text1, setText1] = useState("");
   const [text2, setText2] = useState("");
+  const [comments, setComments] = useState([]);
+  const [comments2, setComments2] = useState([]);
+  const [comments1, setComments1] = useState([]);
+
+  useEffect(() => {
+    if (localStorage.getItem("commentsMob")) {
+      setComments(JSON.parse(localStorage.getItem("commentsMob")));
+    }
+    if (localStorage.getItem("comments2")) {
+      setComments2(JSON.parse(localStorage.getItem("comments2")));
+    }
+    if (localStorage.getItem("comments1")) {
+      setComments1(JSON.parse(localStorage.getItem("comments1")));
+    }
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (text) {
-      comments.push(text);
+      const updatedComments = [...comments, text];
+      localStorage.setItem("commentsMob", JSON.stringify(updatedComments));
+      setComments(updatedComments);
     }
-    if (text1) {
-      comments1.push(text1);
+    if (text2) {
+      const updatedComments = [...comments2, text2];
+      localStorage.setItem("comments2", JSON.stringify(updatedComments));
+      setComments2(updatedComments);
     }
 
-    if (text2) {
-      comments2.push(text2);
+    if (text1) {
+      const updatedComments = [...comments1, text1];
+      localStorage.setItem("comments1", JSON.stringify(updatedComments));
+      setComments1(updatedComments);
     }
     console.log(`commented ${text || text1 || text2}`);
     setText("");

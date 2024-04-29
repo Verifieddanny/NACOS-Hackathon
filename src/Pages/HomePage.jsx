@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import pic from "../assets/pic1.jpg";
 import crypto from "../assets/crypto-trading.jpg";
 import trade from "../assets/wealth_management.jpg";
@@ -9,17 +9,26 @@ const blogsArr = [
   { picture: trade, Title: "WEB3", id: 2 },
 ];
 
-const comments = [];
+// let comments = [];
 export const HomePage = () => {
   const [blog1, setBlog1] = useState(0);
   const [text, setText] = useState("");
+  const [comments, setComments] = useState([]);
+
+  useEffect(() => {
+    if (localStorage.getItem("comments")) {
+      setComments(JSON.parse(localStorage.getItem("comments")));
+    }
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    comments.push(text);
-    console.log(`commented ${text}`);
+    const updatedComments = [...comments, text];
+    localStorage.setItem("comments", JSON.stringify(updatedComments));
+    setComments(updatedComments);
     setText("");
   };
+
   const forexRef = useRef(null);
   const cryptoRef = useRef(null);
   const web3Ref = useRef(null);
@@ -32,6 +41,7 @@ export const HomePage = () => {
   const onClickWeb3 = () => {
     setBlog1(Number(web3Ref.current.id));
   };
+
   return (
     <>
       <div className="hidden md:block p-[1rem] relative w-full h-full md:pt-[4rem] pt-[3.5rem]">
