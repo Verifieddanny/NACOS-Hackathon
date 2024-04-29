@@ -29,11 +29,11 @@ a {
   color: none;
 }
 .nav {
-  @apply w-screen md:h-[4rem] backdrop-blur-md bg-[#1e1e1e] dark:bg-[#D9D9D9] fixed top-0 left-0 flex justify-between items-center px-3 lg:px-[4rem]  text-xl z-30 h-[3.5rem];
+  @apply w-full md:h-[4rem] backdrop-blur-md bg-[#1e1e1e] dark:bg-[#D9D9D9] fixed top-0 left-0 flex justify-between items-center px-3 lg:px-[4rem]  text-xl z-30 h-[3.5rem];
 }
 
 .InnerNav {
-  @apply lg:w-[80%] lg:h-full dark:bg-[#d9d9d9] bg-[#1e1e1e] flex flex-col px-3 md:px-0 text-center lg:text-start lg:static lg:flex-row justify-between lg:justify-center gap-x-[6rem] md:items-center absolute left-0  z-[-20] w-screen h-screen  lg:py-0 pt-[4rem] pb-[3rem]   transition-all duration-700;
+  @apply lg:w-[80%] lg:h-full dark:bg-[#d9d9d9] bg-[#1e1e1e] flex flex-col px-3 md:px-0 text-center lg:text-start lg:static lg:flex-row justify-between lg:justify-center gap-x-[6rem] md:items-center absolute left-0  z-[-20] w-full h-screen  lg:py-0 pt-[4rem] pb-[3rem]   transition-all duration-700;
 }
 
 .menu {
